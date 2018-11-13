@@ -24,7 +24,8 @@ Készítette: Berecz Ádám
 | ------------- |
 | *Restaurant **-1--N-** Order* |
 | *User **-1--N-** Order*  |
-| *Food **-N--N-** Order* |
+| *Food **-1--N-** Order* |
+| *Food **-N--N-** Restaurant* |
 
 ![alt text](https://github.com/Flash97111/alkfejl2/blob/master/img/db.png)
 
@@ -44,7 +45,7 @@ Készítette: Berecz Ádám
 | Oszlop | Tipus | Leiras |
 | ------------- | ------------- | ------------- |
 | ID  | int  | elsődleges kulcs |
-| NAME  | varchar | jármű neve |
+| NAME  | varchar | étterem neve |
 | ADDRESS  | varchar | cím |
 | TEL  | varchar | telefonszám |
 
