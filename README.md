@@ -81,7 +81,7 @@ Készítette: Berecz Ádám
 | ------------- | ------------- | ------------- |
 | GET  | / | Főoldal |
 | GET  | /restaurants | Éttermek |
-| GET  | /foods/{restaurantID} | Adott étterem ételei |
+| GET  | /restaurants/{ID} | Adott étterem ételei |
 | POST  | /login | Bejelentkezési adatok küldése |
 | POST | /register | Regisztrációs adatok küldése |
 
@@ -89,8 +89,8 @@ Készítette: Berecz Ádám
 
 | Metódus | Request | Leírás |
 | ------------- | ------------- | ------------- |
-| GET  | /orders/my/{userID} | Saját rendelések |
-| POST  | /foods/{restaurantID} | Új rendelés |
+| GET  | /orders/my | Saját rendelések |
+| POST  | /restaurants/{ID} | Új rendelés |
 | DELETE  | /orders/my/{orderID} | Adott ID-jú rendelés törlése |
 
 ***ROLE_ADMIN***
@@ -100,10 +100,10 @@ Készítette: Berecz Ádám
 | GET  | /users | Felhasználók |
 | GET  | /restaurants | Éttermek |
 | GET  | /foods | Ételek |
-| GET  | /foods/{restaurantID} | Adott étterem ételei |
 | GET  | /orders | Rendelések |
 | GET  | /orders/{restaurantID} | Adott étterem rendelései |
-| PUT  | /users/{ID} | Adott ID-jú felhasználó jogosultságának változtatása |
+| PUT  | /users/{ID}/admin | Adott ID-jú felhasználó adminná tétele |
+| PUT  | /users/{ID} | Adott ID-jú felhasználó admin jogának elvétele |
 | POST  | /restaurants | Új étterem létrehozása |
 | POST  | /foods | Új étel létrehozása |
 | DELETE | /restaurants/{ID}  | Adott ID-jú étterem törlése |
