@@ -1,5 +1,5 @@
 import { Restaurant } from "./restaurant";
-import { Order } from "./order";
+import { Ordered } from "./ordered";
 
 export class Food {
     public id: number;
@@ -8,6 +8,6 @@ export class Food {
     public description: string;
     public image: string;
 
-    public orders: Order[];
+    public orders: Ordered[];
     public restaurants: Restaurant[];
 }

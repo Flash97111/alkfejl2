@@ -1,5 +1,5 @@
 import { Food } from "./food";
-import { Order } from "./order";
+import { Ordered } from "./ordered";
 
 export class Restaurant {
     public id: number;
@@ -8,5 +8,5 @@ export class Restaurant {
     public phone: string;
 
     public foods: Food[];
-    public orders: Order[];
+    public orders: Ordered[];
 }

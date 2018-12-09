@@ -1,4 +1,4 @@
-import { Order } from "./order";
+import { Ordered } from "./ordered";
 
 export class User {
     public id: number;
@@ -8,5 +8,5 @@ export class User {
     public phone: string;
     public role: string;
 
-    public orders: Order[];
+    public orders: Ordered[];
 }
