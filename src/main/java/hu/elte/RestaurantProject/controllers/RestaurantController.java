@@ -44,13 +44,13 @@ public class RestaurantController {
     }   
     
     @GetMapping("/{id}")
-    public ResponseEntity<Iterable<Food>> get(@PathVariable Integer id) {
+    public ResponseEntity<Restaurant> get(@PathVariable Integer id) {
         Optional<Restaurant> oRestaurant = restaurantRepository.findById(id);
         if (!oRestaurant.isPresent()) {
             return ResponseEntity.notFound().build();   
         }
         
-        return ResponseEntity.ok(oRestaurant.get().getFoods());
+        return ResponseEntity.ok(oRestaurant.get());
     }
     
     @DeleteMapping("/{id}")
