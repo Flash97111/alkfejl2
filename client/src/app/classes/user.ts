@@ -5,7 +5,7 @@ export class User {
     public username: string;
     public password: string;
     public address: string;
-    public phone: string;
+    public tel: string;
     public role: string;
 
     public orders: Ordered[];
