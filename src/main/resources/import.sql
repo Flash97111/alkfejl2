@@ -1,15 +1,15 @@
 INSERT INTO `USER` (`USERNAME`, `ADDRESS`, `PASSWORD`, `PHONE`, `ROLE`) VALUES ('admin', 'utca hazszam', '$2a$04$aRYAGeJbvX20Cb26UPoPdeFiiuqIbhSwOObz7UU7.nRu3rbsCNVUu', '06301111111', 'ROLE_ADMIN');
 INSERT INTO `USER` (`USERNAME`, `ADDRESS`, `PASSWORD`, `PHONE`, `ROLE`) VALUES ('user', 'utca2 hazszam2', '$2a$04$kC3QuGXSejTid5IHELpRru9yoPTbUNH1StCt.BHAg/XFn/lyRmw2C', '06302222222', 'ROLE_USER');
 
-INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('Kaja1', 'KajaDesc1', 'Kep1', 1000);
-INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('Kaja2', 'KajaDesc2', 'Kep2', 2000);
-INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('Kaja3', 'KajaDesc3', 'Kep3', 3000);
-INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('Kaja4', 'KajaDesc4', 'Kep4', 4000);
+INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('GARGANELLI ALL’ ARRABBIATA', 'KajaDesc1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Penne_all%27arrabbiata.jpg/1200px-Penne_all%27arrabbiata.jpg', 1690);
+INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('GNOCCHI GENOVESE', 'KajaDesc2', 'https://thevegancookiefairy.files.wordpress.com/2013/01/2d750-img_4373_1.jpg', 3190);
+INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('CARBONARA MODERNO', 'KajaDesc3', 'https://i.pinimg.com/originals/e4/ba/1f/e4ba1f510a83b4728877dae7927b7777.jpg', 2290);
+INSERT INTO `FOOD` (`NAME`, `DESCRIPTION`, `IMAGE`, `PRICE`) VALUES ('JAMBALAYA', 'KajaDesc4', 'https://spicysouthernkitchen.com/wp-content/uploads/slow-cooker-jambalaya-blog.jpg', 4690);
 
-INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES ('EtteremUtca1 EtteremHazszam1', 'Etterem1', 'telefon1');
-INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES ('EtteremUtca2 EtteremHazszam2', 'Etterem2', 'telefon2');
-INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES ('EtteremUtca3 EtteremHazszam3', 'Etterem3', 'telefon3');
-INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES ('EtteremUtca4 EtteremHazszam4', 'Etterem4', 'telefon4');
+INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES ('Debrecen, Csapó u. 30', 'Leroy Cafe', '(30) 204 0600');
+INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES ('Debrecen, Balmazújvárosi út 1', 'The Flat Bisztró', '(20) 800 7439');
+INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES ('Debrecen, Böszörményi út 1', 'Malom Étterem', '(52) 688 668');
+INSERT INTO `RESTAURANT` (`ADDRESS`, `NAME`, `PHONE`) VALUES (' Debrecen, Piac u. 11-15', 'Grand Hotel Aranybika', '(20) 363 6121');
 
 INSERT INTO `ORDERED` (`TIME`, `QTY`, `FOOD_ID`, `RESTAURANT_ID`, `USER_ID`) VALUES (CURRENT_TIMESTAMP, 3, 1, 1, 1);
 INSERT INTO `ORDERED` (`TIME`, `QTY`, `FOOD_ID`, `RESTAURANT_ID`, `USER_ID`) VALUES (CURRENT_TIMESTAMP, 2, 2, 1, 2);
