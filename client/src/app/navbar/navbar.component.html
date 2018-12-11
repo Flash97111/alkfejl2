@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <span>Ételrendelés&trade;</span>
+  <button mat-button routerLink="">Főoldal</button>
+  <button mat-button routerLink="restaurants">Éttermek</button>
+
+  <div class="spacer">
+  </div>
+
+  <div ng-If="!authService.isLoggedIn">
+    <button mat-button routerLink="login">Login</button>
+  </div>
+</mat-toolbar>
