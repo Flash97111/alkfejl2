@@ -46,7 +46,6 @@ public class UserController {
     }
     
     @GetMapping("/{id}")
-    @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<User> get(@PathVariable Integer id) {
         Optional<User> oUser = userRepository.findById(id);
         if (!oUser.isPresent()) {
@@ -115,8 +114,25 @@ public class UserController {
         return ResponseEntity.ok(userRepository.save(user));
     }
     
-    @PostMapping("login")
-    public ResponseEntity login(@RequestBody User user) {
-        return ResponseEntity.ok().build();
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody String cred) {
+        String[] data = cred.split(":");
+        System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+        System.out.println("username: " + data[0]);
+        System.out.println("password: " + data[1]);
+        //System.out.println("encoded password: " + passwordEncoder.encode(data[1]));
+        System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+        
+        Optional<User> oUser = userRepository.findByUsername(data[0]);
+        if (oUser.isPresent()) {
+            if(passwordEncoder.matches(data[1], oUser.get().getPassword())) {
+                return ResponseEntity.ok(oUser.get());
+            }
+            
+            
+        }
+        return ResponseEntity.badRequest().build();
     } 
 }
