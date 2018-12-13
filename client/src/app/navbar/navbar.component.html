@@ -1,12 +1,20 @@
 <mat-toolbar>
   <span>Ételrendelés&trade;</span>
-  <button mat-button routerLink="">Főoldal</button>
-  <button mat-button routerLink="restaurants">Éttermek</button>
+  <button mat-flat-button routerLink="" color="primary">Főoldal</button>
+  <button mat-flat-button routerLink="restaurants" color="primary">Éttermek</button>
 
   <div class="spacer">
   </div>
 
-  <div ng-If="!authService.isLoggedIn">
-    <button mat-button routerLink="login">Login</button>
+  <div *ngIf="!auth.isLoggedIn">
+      <button mat-flat-button routerLink="/login" color="primary">Login</button>
   </div>
+    
+  <div *ngIf="auth.isLoggedIn">
+      <div>Hello {{ auth.user.username }}</div>
+      <button mat-flat-button (click)="auth.logout()" color="primary">Logout</button>  
+  </div>
+  <div *ngIf="auth.isLoggedIn">
+    <button mat-flat-button routerLink="/my-orders" color="primary">Rendeléseim</button>  
+</div>
 </mat-toolbar>

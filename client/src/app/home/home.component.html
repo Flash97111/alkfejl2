@@ -1,6 +1,6 @@
 <h2>Válassz éttermeink közül!</h2>
 
-<mat-grid-list cols="1" rowHeight="270">
+<mat-grid-list cols="1" rowHeight="150">
   <mat-grid-tile *ngFor="let restaurant of _restaurants">
     <mat-card class="restaurant-list-element">
       <mat-card-title>
@@ -12,7 +12,7 @@
           <li>Cím: {{ restaurant.address }} </li>
         </ul>
       </mat-card-subtitle>
-      <mat-card-actions align="right">
+      <mat-card-actions align="center">
         <a mat-flat-button color="primary" href="restaurants/{{ restaurant.id }}">
           Tovább &#187;
         </a>

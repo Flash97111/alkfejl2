@@ -1,0 +1,26 @@
+<h2>{{ auth.user.username }}Rendeléseim</h2>
+
+<mat-grid-list cols="2" rowHeight="386">
+  <mat-grid-tile *ngFor="let order of _myOrders">
+    <mat-card class="order-list-element">
+      <mat-card-title>
+        {{ order.date }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <ul class="order-data">
+          <li>Megrendelő: {{ authService.user.name }} </li>
+          <li>Étel: {{ order.food.name }} </li>
+          <li>Ár: {{ order.food.price * order.qty }} </li>
+          <li>Adag: {{ order.qty }} </li>
+          <li>Étterem: {{ order.restaurant.name }} </li>
+          <li>Telefon: {{ order.restaurant.tel }} </li>
+        </ul>
+      </mat-card-subtitle>
+      <mat-card-actions align="center">
+        <a mat-flat-button color="primary" href="restaurants" width="200">
+          Törlés &#187;
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

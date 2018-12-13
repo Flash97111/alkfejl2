@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   private message = '';
-  private hidePassword = true;
 
   private loginForm = this.fb.group({
     username: ['', Validators.required],

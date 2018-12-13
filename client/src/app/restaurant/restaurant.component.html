@@ -1,6 +1,6 @@
 <h2>{{ _restaurant.name }} - Ételek</h2>
 
-<mat-grid-list cols="1" rowHeight="350">
+<mat-grid-list cols="1" rowHeight="386">
   <mat-grid-tile *ngFor="let food of _foods">
     <mat-card class="food-list-element">
       <mat-card-title>
@@ -8,14 +8,17 @@
       </mat-card-title>
       <mat-card-subtitle>
         <ul class="food-data">
-          <li>Ára: {{ food.price }} </li>
+            <div class="food-price">
+                Ára: {{ food.price }} 
+                <br>
+            </div>
           <img src="{{ food.image }}" height="200" width="500">
           <br>
            {{ food.description }} 
         </ul>
       </mat-card-subtitle>
-      <mat-card-actions align="right">
-        <a mat-flat-button color="primary" href="restaurants">
+      <mat-card-actions align="center">
+        <a mat-flat-button color="primary" href="restaurants" width="200">
           Rendelés &#187;
         </a>
       </mat-card-actions>

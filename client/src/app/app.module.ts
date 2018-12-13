@@ -11,6 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RestaurantComponent } from './restaurant/restaurant.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrdersComponent } from './orders/orders.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     RestaurantsComponent,
     NavbarComponent,
     LoginComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    OrdersComponent
   ],
   imports: [
     MatToolbarModule,
@@ -38,7 +41,8 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     MatIconModule,
     MatDatepickerModule, 
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

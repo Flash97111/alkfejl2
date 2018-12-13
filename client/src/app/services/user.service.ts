@@ -1,42 +1,34 @@
 import { Injectable } from '@angular/core';
 import { User } from '../classes/user';
+import { Ordered } from '../classes/ordered'
+import { HttpService } from '../services/http.service'
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private _USER: User[] = [
-    {
-      id: 1,
-      username: "admin",
-      password: "$2a$04$aRYAGeJbvX20Cb26UPoPdeFiiuqIbhSwOObz7UU7.nRu3rbsCNVUu",
-      address: "asd",
-      tel: "06302037222",
-      role: "ROLE_ADMIN",
-    } as User,
-    {
-      id: 1,
-      username: "user",
-      password: "$2a$04$aRYAGeJbvX20Cb26UPoPdeFiiuqIbhSwOObz7UU7.nRu3rbsCNVUu",
-      address: "useraddress",
-      tel: "06302037222",
-      role: "ROLE_USER",
-    } as User
-  ];
+  public orders: Ordered[]
 
-  constructor() { }
+  private route: string = "users";
 
-  public getUsers() : User[] {
-    return this._USER;
+  constructor(
+    private httpService: HttpService
+  ) { }
+
+  public getUsers() : Promise<User[]> {
+    return this.httpService.get<User[]>(this.route);
   }
 
-  public getUser(id: number) : User {
-    for (let user of this._USER) {
-      if (user.id == id) {
-        return user;
+  public async getOrders(user: User) : Promise<Ordered[]> {
+     this.orders = await this.httpService.get<Ordered[]>("orders");
+     for(let i=0; i<this.orders.length; i++){
+      if(this.orders[i].user != user) {
+        this.orders.splice(i,1)
       }
-    }
+     }
+     return this.orders
   }
   
 }
