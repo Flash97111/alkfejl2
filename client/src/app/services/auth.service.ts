@@ -12,6 +12,7 @@ export class AuthService {
   public user: User = null;
   private users: User[];
   private cred: String;
+  public isAdmin: boolean = false
 
   constructor(
     private httpService: HttpService,
@@ -31,6 +32,9 @@ export class AuthService {
           }
           this.isLoggedIn = true;
           this.user = user;
+          if(this.user.role == 'ROLE_ADMIN') {
+            this.isAdmin = true;
+          }
           console.log(user);
           return Promise.resolve(user);
     } catch (e) {
@@ -43,6 +47,7 @@ export class AuthService {
   public logout() {
     this.isLoggedIn = false;
     this.user = null;
+    this.isAdmin = false;
     window.localStorage.setItem('token', '');
     this.router.navigate(['']);
   }

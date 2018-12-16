@@ -1,22 +1,51 @@
 <h2>Válassz éttermeink közül!</h2>
-
+<div class="container">
 <mat-grid-list cols="1" rowHeight="150">
-  <mat-grid-tile *ngFor="let restaurant of _restaurants">
+  <mat-grid-tile>
     <mat-card class="restaurant-list-element">
       <mat-card-title>
-        {{ restaurant.name }}
+        {{ _restaurants[i].name }}
       </mat-card-title>
       <mat-card-subtitle>
-        <ul class="restaurant-data">
-          <li>Telefon: {{ restaurant.tel }} </li>
-          <li>Cím: {{ restaurant.address }} </li>
+        <ul class="restaurant-data" align="center">
+          <li>Telefon: {{ _restaurants[i].phone }} </li>
+          <li>Cím: {{ _restaurants[i].address }} </li>
         </ul>
       </mat-card-subtitle>
       <mat-card-actions align="center">
-        <a mat-flat-button color="primary" href="restaurants/{{ restaurant.id }}">
-          Tovább &#187;
-        </a>
-      </mat-card-actions>
+          <a mat-flat-button color="primary" href="restaurants/{{ _restaurants[i].id }}">
+            Tovább &#187;
+          </a>
+        </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+  <button class="btn" (click)="click()">></button>
+  <button class="bt2" (click)="click2()"><</button>
+
+  <h2>Ételeink</h2>
+
+  <mat-grid-list cols="1" rowHeight="390">
+      <mat-grid-tile>
+        <mat-card class="food-list-element">
+            <mat-card-title>
+                {{ _foods[j].name }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                <ul class="food-data">
+                    <div class="food-price">
+                        Ára: {{ _foods[j].price }} 
+                        <br>
+                    </div>
+                  <img src="{{ _foods[j].image }}" height="200" width="500">
+                  <br>
+                   {{ _foods[j].description }} 
+                </ul>
+              </mat-card-subtitle>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+      <button class="bt3" (click)="click3()">></button>
+      <button class="bt4" (click)="click4()"><</button>
+
+</div>

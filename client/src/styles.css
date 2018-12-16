@@ -14,12 +14,6 @@ body {
     background-position: top center;
 }
 
-hr {
-    width: 100px;
-    border: 1px solid #972828;
-    margin: 30px auto;
-}
-
 h2 {
     text-shadow: 4px 4px 5px red;
     text-align: center;
@@ -29,102 +23,19 @@ h2 {
 }
 
 .mat-flat-button.mat-primary {
-    background: #972828;
+    background: #4221d3;
     text-align: center;
     text-decoration: none;
     color: white;
     border-radius: 25px;
 }
 
-.food-data {
-    width: 400;
-    color: rgb(158, 158, 158);
-    padding: 10px;
-    margin: 0;
-    text-align: center;
-    font-style: italic;
+.delete.mat-primary {
+    background: red;
 }
 
-.food-price {
-    font-size: 20px;
-    color: #972828;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-weight: bold;
-    font-style: normal;
-}
-
-.food-data li {
-    list-style-type: none;
-}
-.mat-card {
-    width: 400;
-}
-.mat-card.food-list-element {
-    box-shadow: none;
-    width: 400;
-}
-.food-list-element > mat-card-subtitle,
-.food-list-element > mat-card-actions {
-    margin: 0;
-    background-color: #eee;
-    padding: 5px !important;
-    transition: 1s;
-    -webkit-transition: 1s;
-}
-.food-list-element:hover > mat-card-subtitle {
-    background-color: rgb(255, 214, 214);
-}
-.food-list-element mat-card-title {
-    padding: 0;
-    border-radius: 25px;
-    font-size: 20px;
-    color: #fff;
-    background-color: rgb(64, 66, 39);
-    text-align: center;
-    font-variant: small-caps;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
-
-.food-list-element > mat-card-subtitle {
-    border-radius: 25px;
-}
-.food-list-element > mat-card-actions {
-    background-color: transparent;
-}
-
-.restaurant-data {
-    color: #555;
-    padding: 0;
-    margin: 0;
-}
-.restaurant-data li {
-    list-style-type: none;
-}
-
-.mat-card.restaurant-list-element {
-    box-shadow: none;
-}
-.restaurant-list-element > mat-card-subtitle,
-.restaurant-list-element > mat-card-actions {
-    margin: 0;
-    background-color: #eee;
-    padding: 5px !important;
-    transition: 1s;
-    -webkit-transition: 1s;
-}
-.restaurant-list-element:hover > mat-card-subtitle,
-.restaurant-list-element:hover > mat-card-actions {
-    background-color: rgb(255, 214, 214);
-}
-.restaurant-list-element mat-card-title {
-    padding: 0;
-    font-size: 20px;
-    color: #fff;
-    background-color: #000;
-    text-align: center;
-    font-variant: small-caps;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
-.food-list-element > mat-card {
-    width: 400px;
+.divider{
+    width:15px;
+    height:auto;
+    display:inline-block;
 }

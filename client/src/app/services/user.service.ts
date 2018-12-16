@@ -21,14 +21,30 @@ export class UserService {
     return this.httpService.get<User[]>(this.route);
   }
 
-  public async getOrders(user: User) : Promise<Ordered[]> {
-     this.orders = await this.httpService.get<Ordered[]>("orders");
-     for(let i=0; i<this.orders.length; i++){
-      if(this.orders[i].user != user) {
-        this.orders.splice(i,1)
-      }
-     }
+  public async delete(id: number) {
+    await this.httpService.delete<User>(this.route + "/" + id);
+  }
+
+  public async toUser(user: User) {
+    await this.httpService.put<User>(this.route + "/" + user.id, user);
+  }
+
+  public async toAdmin(user: User) {
+    await this.httpService.put<User>(this.route + "/admin/" + user.id, user);
+  }
+
+  public async getMyOrders(username: String) : Promise<Ordered[]> {
+     this.orders = await this.httpService.get<Ordered[]>("orders/my/" + username);
      return this.orders
   }
+
+  public async getOrders() :  Promise<Ordered[]> {
+    this.orders = await this.httpService.get<Ordered[]>("orders");
+    return this.orders
+ }
+
+  public async register(user: User) {
+    await this.httpService.post<User>("users/register",user);
+ }
   
 }

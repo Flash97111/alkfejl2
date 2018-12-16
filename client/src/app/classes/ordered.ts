@@ -5,9 +5,13 @@ import { Restaurant } from "./restaurant";
 export class Ordered {
     public id: number;
     public qty: number;
-    public date: Date;
+    public time: string;
 
     public user: User;
     public food: Food;
     public restaurant: Restaurant;
+
+    constructor() {
+        
+    }
 }

@@ -1,0 +1,28 @@
+<h2>Felhasználók</h2>
+<mat-grid-list cols="3" rowHeight="300" >
+  <mat-grid-tile *ngFor="let user of _users">
+    <mat-card class="user-list-element">
+      <mat-card-subtitle>
+          Felhasználónév: {{ user.username }}
+          <br>
+          Lakcím: {{user.address }} 
+          <br>
+          Telefon: {{ user.phone }} 
+          <br>
+          Jogosultság: {{ user.role }} 
+      </mat-card-subtitle>
+      <mat-card-actions align="center" >
+        <div>
+          <button align="left" mat-flat-button color="primary" type="submit" (click)="perm(user)">
+              Jogosultság &#187;
+          </button>
+          <a class="divider"></a>
+        <button align="right" class="delete" mat-flat-button color="primary" type="submit" (click)="delete(user.id)">
+          Törlés &#187;
+        </button>
+      </div>
+        
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

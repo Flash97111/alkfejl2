@@ -1,20 +1,55 @@
 <mat-toolbar>
-  <span>Ételrendelés&trade;</span>
-  <button mat-flat-button routerLink="" color="primary">Főoldal</button>
-  <button mat-flat-button routerLink="restaurants" color="primary">Éttermek</button>
 
-  <div class="spacer">
+  <div>
+    <img src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Food-Dome-512.png" width="50" height="50">
+  </div>
+
+  <div class="welcome" *ngIf="auth.isLoggedIn">
+     Hello {{ auth.user.username }}! 
+  </div>
+
+  <div>
+    <button mat-flat-button routerLink="" color="primary">Főoldal</button>
+  </div>
+
+  <div>
+    <button mat-flat-button routerLink="restaurants" color="primary">Éttermek</button>
   </div>
 
   <div *ngIf="!auth.isLoggedIn">
-      <button mat-flat-button routerLink="/login" color="primary">Login</button>
+    <button mat-flat-button routerLink="/login" color="primary">Login</button>
+  </div>
+
+  <div *ngIf="!auth.isLoggedIn">
+    <button mat-flat-button routerLink="/register" color="primary">Register</button>
   </div>
     
-  <div *ngIf="auth.isLoggedIn">
-      <div>Hello {{ auth.user.username }}</div>
-      <button mat-flat-button (click)="auth.logout()" color="primary">Logout</button>  
+  <div *ngIf="auth.isLoggedIn">    
+    <button mat-flat-button (click)="auth.logout()" color="primary">Logout</button>  
   </div>
+
   <div *ngIf="auth.isLoggedIn">
-    <button mat-flat-button routerLink="/my-orders" color="primary">Rendeléseim</button>  
-</div>
+    <button mat-flat-button routerLink="/orders/my/{{ auth.user.username }}" color="primary">Rendeléseim</button>  
+  </div>
+
+  <div *ngIf="auth.isAdmin">
+    Admin felületek: 
+  </div>
+
+  <div *ngIf="auth.isAdmin">
+    <button mat-flat-button routerLink="/orders" color="primary">Rendelések</button>  
+  </div>
+
+  <div *ngIf="auth.isAdmin">
+    <button mat-flat-button routerLink="/users" color="primary">Felhasználók</button>  
+  </div>
+
+  <div *ngIf="auth.isAdmin">
+      <button mat-flat-button routerLink="/new-restaurant" color="primary">Új étterem</button>  
+  </div>
+
+  <div *ngIf="auth.isAdmin">
+      <button mat-flat-button routerLink="/new-food" color="primary">Új étel</button>  
+  </div>
+
 </mat-toolbar>

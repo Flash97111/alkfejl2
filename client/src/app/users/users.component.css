@@ -1,0 +1,28 @@
+
+
+.user-list-element > mat-card-subtitle {
+    background-color: #eee;
+    padding: 30px !important;
+    transition: 1s;
+    -webkit-transition: 1s;
+    text-align: center;
+}
+
+.user-list-element:hover > mat-card-subtitle {
+    background-color: rgb(255, 214, 214);
+    transform: scale(1.05);
+}
+
+.user-list-element > mat-card-subtitle{
+    border-radius: 25px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.divider{
+    width: 60px;
+    height:auto;
+    display:inline-block;
+}

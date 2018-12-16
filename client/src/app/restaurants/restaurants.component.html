@@ -8,14 +8,19 @@
       </mat-card-title>
       <mat-card-subtitle>
         <ul class="restaurant-data">
-          <li>Telefon: {{ restaurant.tel }} </li>
+          <li>Telefon: {{ restaurant.phone }} </li>
           <li>Cím: {{ restaurant.address }} </li>
         </ul>
       </mat-card-subtitle>
-      <mat-card-actions align="right">
+      <mat-card-actions align="center">
         <a mat-flat-button color="primary" href="restaurants/{{ restaurant.id }}">
           Tovább &#187;
         </a>
+        <a *ngIf="authService.isAdmin" class="divider"></a>
+        <a class="delete" *ngIf="authService.isAdmin" mat-flat-button color="primary" (click)="delete(restaurant.id)">
+          Törlés &#187;
+        </a>
+        
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

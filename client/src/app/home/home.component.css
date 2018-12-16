@@ -1,1 +1,184 @@
-/**/
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Style the button and place it in the middle of the container/image */
+  .container .btn {
+    position: absolute;
+    top: 12%;
+    left: 77%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .container .btn:hover {
+    background-color: black;
+    transition: 1s;
+  }
+
+/* Style the button and place it in the middle of the container/image */
+.container .bt2 {
+     position: absolute;
+     top: 12%;
+     left: 23%;
+     transform: translate(-50%, -50%);
+     -ms-transform: translate(-50%, -50%);
+     background-color: #555;
+     color: white;
+     font-size: 16px;
+     border: none;
+     cursor: pointer;
+     border-radius: 5px;
+ }
+      
+.container .bt2:hover {
+  background-color: black;
+  transition: 1s;
+}
+
+  .restaurant-data {
+    color: #555;
+    padding: 0;
+    margin: 0;
+}
+
+.restaurant-data li,
+.user-data li {
+    list-style-type: none;
+}
+
+.mat-card.restaurant-list-element {
+    box-shadow: none;
+}
+
+.restaurant-list-element > mat-card-subtitle,
+.restaurant-list-element > mat-card-actions {
+    margin: 0;
+    width: 500px;
+    background-color: #eee;
+    padding: 5px !important;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.restaurant-list-element:hover > mat-card-subtitle,
+.restaurant-list-element:hover > mat-card-actions {
+    background-color: rgb(255, 214, 214);
+}
+.restaurant-list-element mat-card-title {
+    padding: 0;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    font-variant: small-caps;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.food-data {
+    width: 400;
+    color: rgb(158, 158, 158);
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+.food-price {
+    font-size: 20px;
+    color: #972828;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.food-data li {
+    list-style-type: none;
+}
+
+.mat-card.food-list-element {
+    box-shadow: none;
+}
+
+.food-list-element > mat-card-subtitle,
+.food-list-element > mat-card-actions {
+    margin: 0;
+    background-color: #eee;
+    padding: 5px !important;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.food-list-element:hover > mat-card-subtitle,
+.restaurant-list-element:hover > mat-card-subtitle,
+.restaurant-list-element:hover > mat-card-actions {
+    background-color: rgb(255, 214, 214);
+    transform: scale(1.05);
+}
+
+.food-list-element > mat-card-subtitle {
+    border-radius: 25px;
+}
+
+.food-list-element mat-card-title{
+    padding: 0;
+    border-radius: 25px;
+    font-size: 20px;
+    color: #fff;
+    background-color: rgb(64, 66, 39);
+    text-align: center;
+    font-variant: small-caps;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.food-list-element > mat-card-actions {
+    background-color: transparent;
+}
+
+ /* Style the button and place it in the middle of the container/image */
+ .container .bt3 {
+    position: absolute;
+    top: 75%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .container .bt3:hover {
+    background-color: black;
+    transition: 1s;
+  }
+
+/* Style the button and place it in the middle of the container/image */
+.container .bt4 {
+     position: absolute;
+     top: 75%;
+     left: 22%;
+     transform: translate(-50%, -50%);
+     -ms-transform: translate(-50%, -50%);
+     background-color: #555;
+     color: white;
+     font-size: 16px;
+     border: none;
+     cursor: pointer;
+     border-radius: 5px;
+ }
+      
+.container .bt4:hover {
+  background-color: black;
+    transition: 1s;
+}

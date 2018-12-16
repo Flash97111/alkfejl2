@@ -13,6 +13,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './orders/orders.component'
+import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { UsersComponent } from './users/users.component';
+import { RestaurantFormComponent } from './restaurant-form/restaurant-form.component';
+import { FoodFormComponent } from './food-form/food-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,11 @@ import { OrdersComponent } from './orders/orders.component'
     NavbarComponent,
     LoginComponent,
     RestaurantComponent,
-    OrdersComponent
+    OrdersComponent,
+    RegisterComponent,
+    UsersComponent,
+    RestaurantFormComponent,
+    FoodFormComponent
   ],
   imports: [
     MatToolbarModule,
@@ -42,7 +51,8 @@ import { OrdersComponent } from './orders/orders.component'
     MatDatepickerModule, 
     MatInputModule,
     MatNativeDateModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

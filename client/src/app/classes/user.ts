@@ -5,8 +5,12 @@ export class User {
     public username: string;
     public password: string;
     public address: string;
-    public tel: string;
+    public phone: string;
     public role: string;
 
     public orders: Ordered[];
+
+    constructor() {
+
+    }
 }

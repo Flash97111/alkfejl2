@@ -1,4 +1,7 @@
 <h2>{{ _restaurant.name }} - Ételek</h2>
+<a *ngIf="authService.isAdmin && !addMode" mat-flat-button color="primary" (click)="add()">
+  Új étel hozzáadása &#187;
+</a>
 
 <mat-grid-list cols="1" rowHeight="386">
   <mat-grid-tile *ngFor="let food of _foods">
@@ -17,11 +20,26 @@
            {{ food.description }} 
         </ul>
       </mat-card-subtitle>
-      <mat-card-actions align="center">
-        <a mat-flat-button color="primary" href="restaurants" width="200">
-          Rendelés &#187;
-        </a>
+      <mat-card-actions *ngIf="authService.isLoggedIn && !addMode" align="center" >
+          <form (ngSubmit)="onSubmit($event, food)">
+              <div class="form-group">
+                <input type="number" min="1" max="15" name="player" class="form-control" value="qty" required>
+                <button mat-flat-button color="primary" type="submit">Rendelés</button>
+                <a class="delete" *ngIf="authService.isAdmin" mat-flat-button color="primary" (click)="delete(food.id)">
+                    Törlés &#187;
+                </a>
+                <a class="delete" *ngIf="authService.isAdmin" mat-flat-button color="primary" (click)="deleteLocal(food)">
+                  Törlés innen &#187;
+              </a>
+              </div>                 
+          </form>
       </mat-card-actions>
+      <div class="alert" *ngIf="addMode" align="center"> <span>
+        <a mat-flat-button color="primary"(click)="addFood(food)">Hozzáadás</a>
+      </span></div> 
+      <div class="alert" *ngIf="!authService.isLoggedIn" align="center"> <span>
+          <a mat-flat-button color="primary" href="/login">Rendeleshez jelentkezzen be!</a>
+        </span></div>  
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

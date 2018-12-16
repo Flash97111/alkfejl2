@@ -1,0 +1,31 @@
+<h1>Új étel felvétele</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>Név</div>
+  <mat-form-field>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <br> 
+  <div>Ár</div>
+  <mat-form-field>
+    <input  matInput formControlName="price" type="number" min="0" max="20000">
+  </mat-form-field>
+  <br> 
+  <div>Leírás</div>
+  <mat-form-field>
+    <input  matInput formControlName="desc">
+  </mat-form-field>
+  <br> 
+  <div>Kép (link)</div>
+  <mat-form-field>
+    <input  matInput formControlName="image">
+  </mat-form-field>
+
+  <div>
+    <button mat-flat-button type="submit" color="primary">Felvétel</button>
+  </div>
+
+  <div>
+    {{message}}
+  </div>
+</form>

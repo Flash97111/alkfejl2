@@ -1,1 +1,45 @@
-/* */
+.restaurant-data {
+    color: #555;
+    padding: 0;
+    margin: 0;
+}
+
+.restaurant-data li,
+.user-data li {
+    list-style-type: none;
+}
+
+.mat-card.restaurant-list-element {
+    box-shadow: none;
+}
+
+.restaurant-list-element > mat-card-subtitle,
+.restaurant-list-element > mat-card-actions {
+    margin: 0;
+    width: 500px;
+    text-align: center;
+    background-color: #eee;
+    padding: 5px !important;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.restaurant-list-element:hover > mat-card-subtitle,
+.restaurant-list-element:hover > mat-card-actions {
+    background-color: rgb(255, 214, 214);
+}
+.restaurant-list-element mat-card-title {
+    padding: 0;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    font-variant: small-caps;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.divider{
+    width: 300px;
+    height:auto;
+    display:inline-block;
+}

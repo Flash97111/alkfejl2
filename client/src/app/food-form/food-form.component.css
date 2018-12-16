@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+    color: aliceblue;
+}
+h1 {
+    color: aliceblue;
+    font-size: 25px;
+}
+div {
+    color: aliceblue;
+}
+mat-form-field {
+    background-color: aliceblue;
+}

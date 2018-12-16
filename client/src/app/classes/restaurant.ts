@@ -5,8 +5,12 @@ export class Restaurant {
     public id: number;
     public name: string;
     public address: string;
-    public tel: string;
+    public phone: string;
 
     public foods: Food[];
     public orders: Ordered[];
+
+    constructor() {
+        
+    }
 }
