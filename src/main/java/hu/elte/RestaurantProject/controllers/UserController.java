@@ -73,7 +73,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
     
-    @PutMapping("/{id}/admin")
+    @PutMapping("/admin/{id}")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<User> putToAdmin(@PathVariable Integer id,
                                               @RequestBody User user) {
@@ -82,11 +82,7 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
         
-        user.setId(id);
-        user.setUsername(oUser.get().getUsername());
-        user.setPassword(oUser.get().getPassword());
-        user.setAddress(oUser.get().getAddress());
-        user.setPhone(oUser.get().getPhone());
+        user.setRole(User.Role.ROLE_ADMIN);
         return ResponseEntity.ok(userRepository.save(user));
     }
     
@@ -97,7 +93,6 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
         
-        user.setId(id);
         user.setRole(User.Role.ROLE_USER);
         return ResponseEntity.ok(userRepository.save(user));
     }
@@ -116,15 +111,7 @@ public class UserController {
     
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody String cred) {
-        String[] data = cred.split(":");
-        System.out.println("------------------------------------------");
-        System.out.println("------------------------------------------");
-        System.out.println("username: " + data[0]);
-        System.out.println("password: " + data[1]);
-        //System.out.println("encoded password: " + passwordEncoder.encode(data[1]));
-        System.out.println("------------------------------------------");
-        System.out.println("------------------------------------------");
-        
+        String[] data = cred.split(":");        
         Optional<User> oUser = userRepository.findByUsername(data[0]);
         if (oUser.isPresent()) {
             if(passwordEncoder.matches(data[1], oUser.get().getPassword())) {

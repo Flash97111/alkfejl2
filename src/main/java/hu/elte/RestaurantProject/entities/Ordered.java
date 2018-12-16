@@ -52,8 +52,7 @@ public class Ordered implements Serializable {
     
     @Column
     @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date time;
+    private String time;
     
     @ManyToOne
     @JoinColumn

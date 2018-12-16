@@ -49,11 +49,11 @@ public class User implements Serializable {
     @NotNull
     private String password;
     
-    @Column(unique=true)
+    @Column
     @NotNull
     private String address;
     
-    @Column(unique=true)
+    @Column
     @NotNull
     private String phone;
     

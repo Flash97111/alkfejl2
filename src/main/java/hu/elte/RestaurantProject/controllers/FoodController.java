@@ -40,7 +40,6 @@ public class FoodController {
     
     
     @GetMapping("")
-    @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Food>> getAll() {
         Iterable<Food> foods = foodRepository.findAll();
         return ResponseEntity.ok(foods);

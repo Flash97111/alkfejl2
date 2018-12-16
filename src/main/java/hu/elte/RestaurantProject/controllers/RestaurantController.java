@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -109,5 +110,41 @@ public class RestaurantController {
 
         restaurant.setId(null);
         return ResponseEntity.ok(restaurantRepository.save(restaurant));
+    }
+    
+    @PutMapping("/{rid}")
+    public ResponseEntity<Restaurant> put(@PathVariable Integer rid, @RequestBody Food food) {
+        Optional<Food> oFood = foodRepository.findById(food.getId());
+        if (!oFood.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        Optional<Restaurant> oRestaurant = restaurantRepository.findById(rid);
+        if (!oRestaurant.isPresent()) {
+            return ResponseEntity.badRequest().build();
+        }
+        
+        oRestaurant.get().getFoods().add(oFood.get());
+        return ResponseEntity.ok(restaurantRepository.save(oRestaurant.get()));
+    }
+    //torles
+    @PutMapping("/{rid}/{fid}")
+    public ResponseEntity<Restaurant> remove(@PathVariable Integer rid, @RequestBody Food food) {
+        Optional<Food> oFood = foodRepository.findById(food.getId());
+        if (!oFood.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        Optional<Restaurant> oRestaurant = restaurantRepository.findById(rid);
+        if (!oRestaurant.isPresent()) {
+            return ResponseEntity.badRequest().build();
+        }
+        for(int i=0; i<oRestaurant.get().getFoods().size(); i++) {
+            if(oRestaurant.get().getFoods().get(i).getId() == oFood.get().getId()) {
+                oRestaurant.get().getFoods().remove(i);
+                return ResponseEntity.ok(restaurantRepository.save(oRestaurant.get()));
+            }
+        }
+        return ResponseEntity.ok(restaurantRepository.save(oRestaurant.get()));
     }
 }

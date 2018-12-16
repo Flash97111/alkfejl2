@@ -11,18 +11,24 @@ package hu.elte.RestaurantProject.controllers;
  */
 import hu.elte.RestaurantProject.entities.Ordered;
 import hu.elte.RestaurantProject.entities.Restaurant;
+import hu.elte.RestaurantProject.entities.User;
 import hu.elte.RestaurantProject.repositories.OrderedRepository;
 import hu.elte.RestaurantProject.repositories.RestaurantRepository;
+import hu.elte.RestaurantProject.repositories.UserRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/orders")
 public class OrderedController {
@@ -30,11 +36,32 @@ public class OrderedController {
     private OrderedRepository orderRepository;
     @Autowired
     private RestaurantRepository restaurantRepository;
+    @Autowired
+    private UserRepository userRepository;
     
     @GetMapping("")
     public ResponseEntity<Iterable<Ordered>> getAll() {
         Iterable<Ordered> orders = orderRepository.findAll();
         return ResponseEntity.ok(orders);
+    }
+    
+    @GetMapping("/my/{username}")
+    public ResponseEntity<Iterable<Ordered>> get(@PathVariable String username) {
+        Optional<User> oUser = userRepository.findByUsername(username);
+        if (!oUser.isPresent()) {
+            System.out.println("-----");
+            System.out.println(username + " not found");
+            System.out.println("-----");
+            return ResponseEntity.badRequest().build();
+        }
+        Iterable<Ordered> orders = orderRepository.findByUser(oUser.get());
+        return ResponseEntity.ok(orders);
+    }
+    
+    @PostMapping("/new")
+    public ResponseEntity<Ordered> post(@RequestBody Ordered order) {
+        order.setId(null);        
+        return ResponseEntity.ok(orderRepository.save(order));
     }
     
     @DeleteMapping("/{id}")
