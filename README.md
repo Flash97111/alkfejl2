@@ -1,4 +1,8 @@
 Készítette: Berecz Ádám
+# help
+netstat -ao |find /i "listening"
+Taskkill /F /IM id
+npm install --save @angular/material @angular/cdk
 # Feladat leírása
 - A cél egy webes alkalmazás elkészítése, ahol a felhasználóknak regisztráció/bejelentkezés után lehetőségük van különböző éttermek és kínálatuk böngészésére, étel rendelésére, rendeléseik megtekintésére.
 # Szerepkörök
@@ -89,23 +93,22 @@ Készítette: Berecz Ádám
 
 | Metódus | Request | Leírás |
 | ------------- | ------------- | ------------- |
-| GET  | /orders/my | Saját rendelések |
+| GET  | /orders/my/{username} | Saját rendelések |
 | POST  | /restaurants/{ID} | Új rendelés |
-| DELETE  | /orders/my/{orderID} | Adott ID-jú rendelés törlése |
+| DELETE  | /orders/{orderID} | Adott ID-jú rendelés törlése |
 
 ***ROLE_ADMIN***
 
 | Metódus | Request | Leírás |
 | ------------- | ------------- | ------------- |
 | GET  | /users | Felhasználók |
-| GET  | /restaurants | Éttermek |
-| GET  | /foods | Ételek |
 | GET  | /orders | Rendelések |
-| GET  | /orders/{restaurantID} | Adott étterem rendelései |
-| PUT  | /users/{ID}/admin | Adott ID-jú felhasználó adminná tétele |
+| PUT  | /users/admin/{ID} | Adott ID-jú felhasználó adminná tétele |
 | PUT  | /users/{ID} | Adott ID-jú felhasználó admin jogának elvétele |
 | POST  | /restaurants | Új étterem létrehozása |
 | POST  | /foods | Új étel létrehozása |
+| PUT  | /restaurants/{restaurantID} | Adott étel hozzáadása adott étteremhez |
+| POST  | /restaurants/{restaurantID}/{foodID} | Adott étel törlése adott étteremből |
 | DELETE | /restaurants/{ID}  | Adott ID-jú étterem törlése |
 | DELETE | /foods/{ID}  | Adott ID-jú étel törlése |
 | DELETE | /orders/{ID} | Adott ID-jú rendelés törlése |
