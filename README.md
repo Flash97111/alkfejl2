@@ -1,8 +1,10 @@
 Készítette: Berecz Ádám
-# help
-netstat -ao |find /i "listening"
-Taskkill /F /IM id
-npm install --save @angular/material @angular/cdk
+### help
+
+- netstat -ao |find /i "listening"
+- Taskkill /F /IM id
+- npm install --save @angular/material @angular/cdk
+
 # Feladat leírása
 - A cél egy webes alkalmazás elkészítése, ahol a felhasználóknak regisztráció/bejelentkezés után lehetőségük van különböző éttermek és kínálatuk böngészésére, étel rendelésére, rendeléseik megtekintésére.
 # Szerepkörök
